@@ -5,9 +5,8 @@ server:
 ## 初始化大小，最小，最大
 spring: 
   druid: 
-    jdbcUrl: 
-      jdbc: mysql://sh-cdb-ahtqv2lq.sql.tencentcdb.com:61286/order1
-      jdbcUrl1: jdbc:mysql://sh-cdb-ahtqv2lq.sql.tencentcdb.com:61286/order2
+    jdbc: mysql://sh-cdb-ahtqv2lq.sql.tencentcdb.com:61286/order1
+    jdbcUrl1: jdbc:mysql://sh-cdb-ahtqv2lq.sql.tencentcdb.com:61286/order2
     username: root
     password: dwkh1112
     driver-class-name: org.gjt.mm.mysql.Driver
