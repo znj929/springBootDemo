@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8089
 
 #连接池的配置信息
 ## 初始化大小，最小，最大
@@ -61,6 +61,6 @@ logging:
 
 
 #默认只有info/health
-management:  endpoint:    shutdown:      enabled: true    health:      show-details: always
+management:  endpoint:    shutdown:      enabled: false    health:      show-details: always
   endpoints:    web:      base-path: /      exposure:        include: '*'
 
