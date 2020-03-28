@@ -8,9 +8,18 @@ import lombok.Data;
  *
  */
 @Data
-public class Customer {
+public class Customer extends BaseEntity {
 
 	private String id;
 	private String name;
 	private String url;
+	
+	public Customer(){
+		
+	}
+	public Customer(String id,String name,String url){
+		this.id = id;
+		this.name = name;
+		this.url = url;
+	}
 }

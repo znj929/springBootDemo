@@ -5,18 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.dao.CustomerDao;
 import com.example.demo.dynamicDataSource.TargetDataSource;
 import com.example.demo.model.Customer;
 
 @Service("customerService")
-public class CustomerService {
+public class CustomerService extends ServiceImpl<CustomerDao, Customer> {
 	@Autowired
 	private CustomerDao customerDao;
 	
-	@TargetDataSource(name = "ds2")
+	@TargetDataSource(name = "ds1")
 	public List<Customer> getCustomers(){
-		return customerDao.selectAll();
+		List<Customer> selectAll = customerDao.selectAll();
+		return selectAll;
+	}
+	@TargetDataSource(name = "ds2")
+	public List<Customer> getCustomers2(){
+		List<Customer> selectAll = customerDao.selectAll();
+		return selectAll;
 	}
 	
 }

@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,11 +29,20 @@ import com.example.demo.model.Customer;
 import com.example.demo.model.excel.CustomerExcelTemple;
 import com.example.demo.service.CustomerService;
 import com.example.demo.utils.FileUtils;
+import com.example.demo.utils.ImageUtils;
 
 @RestController
 public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
+	
+	@GetMapping("/test")
+	public void test(){
+		List<Customer> customers = customerService.getCustomers();
+		System.err.println("customers"+customers.size());
+		List<Customer> customers2 = customerService.getCustomers2();
+		System.err.println("customers2"+customers2.size());
+	}
 	
 	public List<CustomerExcelTemple> getData() throws MalformedURLException{
 		List<Customer> customers = customerService.getCustomers();
@@ -44,6 +51,22 @@ public class CustomerController {
 			CustomerExcelTemple customerExcelTemple = new CustomerExcelTemple();
 			BeanUtils.copyProperties(customer, customerExcelTemple);
 			customerExcelTemple.setUrl(new URL(customer.getUrl()));
+			
+			customerExcelTemples.add(customerExcelTemple);
+		}
+		return customerExcelTemples;
+	}
+	public List<CustomerExcelTemple> getDataImage() throws MalformedURLException{
+		List<Customer> customers = customerService.getCustomers();
+		List<CustomerExcelTemple> customerExcelTemples = new ArrayList<>();
+		for (Customer customer : customers) {
+			CustomerExcelTemple customerExcelTemple = new CustomerExcelTemple();
+			BeanUtils.copyProperties(customer, customerExcelTemple);
+			//customerExcelTemple.setUrl(new URL(customer.getUrl()));
+			byte[] byteByImgUrl = ImageUtils.getByteByImgUrl(customer.getUrl());
+			if(byteByImgUrl!=null && byteByImgUrl.length>0) {
+				customerExcelTemple.setBaseImg(byteByImgUrl);
+			}
 			customerExcelTemples.add(customerExcelTemple);
 		}
 		return customerExcelTemples;
@@ -53,6 +76,22 @@ public class CustomerController {
 	public List<Customer> getCustomers() {
 		return customerService.getCustomers();
 	}
+	
+	@GetMapping("/getExcelImage")
+	public String getExcelImage() throws MalformedURLException{
+		//指定目标地址
+        String fileName = FileUtils.getPath() + System.currentTimeMillis() + ".xlsx";
+        //准备数据
+        List<CustomerExcelTemple> data = getDataImage();
+        ExcelWriter excelWriter = EasyExcel.write(fileName,CustomerExcelTemple.class).build();
+        WriteSheet writeSheet = EasyExcel.writerSheet().build();
+        excelWriter.write(data, writeSheet);
+        excelWriter.finish();
+		return fileName;
+	}
+	
+	
+	
 	
 	/**
 	 * 模板注意 用{} 来表示你要用的变量 如果本来就有"{","}" 特殊字符 用"\{","\}"代替

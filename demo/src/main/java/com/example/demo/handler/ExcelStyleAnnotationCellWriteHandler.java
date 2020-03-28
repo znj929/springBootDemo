@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import com.alibaba.excel.metadata.Head;
@@ -30,7 +31,8 @@ public class ExcelStyleAnnotationCellWriteHandler extends HorizontalCellStyleStr
             Field declaredField = c.getDeclaredField(head.getFieldName());
             ExcelStyle annotation = declaredField.getAnnotation(ExcelStyle.class);
             if (annotation != null) {
-                Workbook wb = cell.getSheet().getWorkbook();
+            	Sheet sheet = cell.getSheet();
+                Workbook wb = sheet.getWorkbook();
                 CellStyle cellStyle = wb.createCellStyle();
                 Font font = wb.createFont();
                 font.setFontName(annotation.fontName());
@@ -47,6 +49,7 @@ public class ExcelStyleAnnotationCellWriteHandler extends HorizontalCellStyleStr
                 cellStyle.setAlignment(annotation.horizontalAlignment());
                 cellStyle.setVerticalAlignment(annotation.verticalAlignment());
                 cell.setCellStyle(cellStyle);
+                sheet.autoSizeColumn(1, true);
             }else {
                 super.setContentCellStyle(cell,head,relativeRowIndex);
             }

@@ -7,6 +7,7 @@ import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.annotation.write.style.ContentRowHeight;
 import com.alibaba.excel.annotation.write.style.HeadRowHeight;
 import com.example.demo.annotation.ExcelStyle;
+import com.example.demo.converters.CustomByteImageConverter;
 
 import lombok.Data;
 
@@ -32,6 +33,20 @@ public class CustomerExcelTemple {
 	@ExcelStyle()
 	private URL url;
 	
+	/**
+	 * byte[]
+	 */
+	@ExcelProperty(value = "baseImg", index = 3/* ,converter = CustomByteImageConverter.class */)
+	@ColumnWidth(value = 25)
+	@ExcelStyle()
+	private byte[] baseImg;
+	
+	/*
+	 * 计数
+	 */
+	@ExcelProperty(value = "total",index = 4)
+	@ColumnWidth(value = 30)
+	@ExcelStyle()
 	private String total;
 	
 }

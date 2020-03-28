@@ -84,6 +84,28 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 		</dependency>
+		<!-- mybatisplus -->
+		<dependency>
+		    <groupId>com.baomidou</groupId>
+		    <artifactId>mybatis-plus-boot-starter</artifactId>
+		    <version>3.2.0</version>
+		</dependency>
+		<!-- mp 代码生成器依赖 3.0 从 3.0.3 之后移除了代码生成器与模板引擎的默认依赖，需要手动添加相关依赖 -->
+		<dependency>
+		    <groupId>com.baomidou</groupId>
+		    <artifactId>mybatis-plus-generator</artifactId>
+		    <version>3.3.1.tmp</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.freemarker</groupId>
+		    <artifactId>freemarker</artifactId>
+		    <version>2.3.30</version>
+		</dependency>
+		<!-- atomikos 多数据源事物处理 -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jta-atomikos</artifactId>
+        </dependency>
         
 		<!--热部署-->
         <dependency>
