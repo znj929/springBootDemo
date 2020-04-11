@@ -1,0 +1,52 @@
+info:
+  app-name: spring-boot-actuator-demo
+  description: springboot+druid+easyexcel
+logging:
+  level:
+    com:
+      example:
+        demo:
+          dao: debug
+    root: info
+management:
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: '*'
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.example.demo.model
+server:
+  port: 8080
+spring:
+  devtools:
+    restart:
+      additional-paths: src/main/java
+      enabled: false
+      exclude: WEB-INF/**
+  druid:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    driver-class-name: org.gjt.mm.mysql.Driver
+    filters: stat,wall
+    initialSize: 2
+    jdbcUrl: jdbc:mysql://cdb-5rlnvlhh.gz.tencentcdb.com:10046/order1?useUnicode=true&useSSL=false&characterEncoding=utf8
+    jdbcUrl1: jdbc:mysql://cdb-5rlnvlhh.gz.tencentcdb.com:10046/order2?useUnicode=true&useSSL=false&characterEncoding=utf8
+    maxActive: 2
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    minIdle: 2
+    password: znj123456
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    username: root
+    validationQuery: SELECT 1 FROM DUAL
