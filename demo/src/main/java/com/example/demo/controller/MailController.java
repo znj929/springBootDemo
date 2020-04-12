@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,11 +32,10 @@ public class MailController {
 	public String sendHtmlMail() {
 		try {
 			EmailParam emailParam = new EmailParam();
-			emailParam.setStuName("张阿牛");
-			emailParam.setItemName("亚太银行账目统计");
-			emailParam.setUpdateContent("付款到账");
-			emailParam.setUpdatePerson("盖茨");
-			emailParam.setRemarks("成功到账");
+			emailParam.setContent("测试一下邮件");
+			emailParam.setUpdatePerson("赵南健");
+			emailParam.setRemarks("备注");
+			emailParam.setUpdateDate(new Date().toLocaleString());
             //此处to数组输入多个值，即可实现批量发送
 			String [] to={"18379183218@163.com"};
 			String imagePath = "";

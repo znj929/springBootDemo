@@ -11,9 +11,7 @@ import lombok.Data;
 @Data
 public class EmailParam {
 
-	private String itemName;// 产品名称
-	private String stuName;// 学生姓名
-	private String updateContent;// 变更操作
+	private String content;// 内容
 	private String updatePerson;// 操作人员
 	private String updateDate;// 操作时间
 	private String remarks;// 备注

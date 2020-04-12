@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试邮件发送</title>
+<style>
+.button {
+	background-color: #4CAF50;
+	border-radius: 12px;
+	border: none;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 18px;
+	margin: 4px 2px;
+	cursor: pointer;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.button:hover {
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+</style>
+</head>
+<body style="margin: 0; padding: 0;">
+	<table align="center" border="1" cellpadding="0" cellspacing="0"
+		width="600px">
+		<tr>
+			<td>
+				<table align="center" border="0" cellpadding="0" cellspacing="0"
+					width="600" style="border-collapse: collapse;">
+					<tr>
+						<td align="center" style="padding: 30px 0 20px 0, height: 30px">
+							<img src='cid:logoImage' alt='前途出国' title='前途出国' height="100px" width="180px">
+						</td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#ffffff" style="padding: 0px 30px 20px 30px">
+							<h4>邮件测试:</h4>
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td style="padding: 12px 0 3px">操作人员：<span
+										th:text="${emailParam.updatePerson}"></span></td>
+								</tr>
+								<tr>
+									<td style="padding: 12px 0 3px">操作时间：<span
+										th:text="${emailParam.updateDate}"></span></td>
+								</tr>
+								<tr>
+									<td style="padding: 12px 0 3px">具体内容：<span
+										th:text="${emailParam.content}"></span></td>
+								</tr>
+								<tr>
+									<td style="padding: 12px 0 3px">备注：<span
+										th:text="${emailParam.remarks}"></span></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<table cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="center" style="padding: 5px 0px 5px 0px"><a
+						class="button" href="http://www.baidu.com">查看详情</a></td>
+				</tr>
+			</table>
+		</tr>
+	</table>
+</body>
+</html>

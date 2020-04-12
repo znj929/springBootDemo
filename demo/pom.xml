@@ -183,6 +183,7 @@
                     <include>**/*.keystore</include>
                     <include>**/*.xlsx</include>
                     <include>**/*.html</include>
+                    <include>**/*.jpg</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
