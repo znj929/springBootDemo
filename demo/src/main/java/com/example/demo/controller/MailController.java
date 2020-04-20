@@ -38,9 +38,7 @@ public class MailController {
 			emailParam.setUpdateDate(new Date().toLocaleString());
             //此处to数组输入多个值，即可实现批量发送
 			String [] to={"18379183218@163.com"};
-			String imagePath = "";
-			String templatePath = "";
-			sendEmailUtils.thymeleafEmail(from, to, "这是一封测试邮件主题", emailParam, templatePath , imagePath );
+			sendEmailUtils.thymeleafEmail(from, to, "这是一封测试邮件主题", emailParam);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

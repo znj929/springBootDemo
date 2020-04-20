@@ -15,5 +15,4 @@ public class EmailParam {
 	private String updatePerson;// 操作人员
 	private String updateDate;// 操作时间
 	private String remarks;// 备注
-
 }

@@ -33,7 +33,7 @@ public class SendEmailUtils {
 	 * @param imagePath 图片/文件路径(绝对路径)
 	 * @throws MessagingException
 	 */
-	public void thymeleafEmail(String from,String[] to, String subject,EmailParam emailParam,String template,String imgPath) throws MessagingException {
+	public void thymeleafEmail(String from,String[] to, String subject,EmailParam emailParam) throws MessagingException {
 	    MimeMessage mimeMessage =javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
 		mimeMessageHelper.setFrom(from);
