@@ -50,7 +50,7 @@ public class CustomerController {
 		for (Customer customer : customers) {
 			CustomerExcelTemple customerExcelTemple = new CustomerExcelTemple();
 			BeanUtils.copyProperties(customer, customerExcelTemple);
-			customerExcelTemple.setUrl(new URL(customer.getUrl()));
+			//customerExcelTemple.setUrl(new URL(customer.getUrl()));
 			
 			customerExcelTemples.add(customerExcelTemple);
 		}
@@ -65,7 +65,7 @@ public class CustomerController {
 			//customerExcelTemple.setUrl(new URL(customer.getUrl()));
 			byte[] byteByImgUrl = ImageUtils.getByteByImgUrl(customer.getUrl());
 			if(byteByImgUrl!=null && byteByImgUrl.length>0) {
-				customerExcelTemple.setBaseImg(byteByImgUrl);
+				//customerExcelTemple.setBaseImg(byteByImgUrl);
 			}
 			customerExcelTemples.add(customerExcelTemple);
 		}
@@ -142,7 +142,8 @@ public class CustomerController {
 		for (Customer customer : customers) {
 			CustomerExcelTemple customerExcelTemple = new CustomerExcelTemple();
 			BeanUtils.copyProperties(customer, customerExcelTemple);
-			customerExcelTemple.setUrl(new URL(customer.getUrl()));
+			//customerExcelTemple.setUrl(new URL(customer.getUrl()));
+			customerExcelTemple.setAddrUrl(customer.getUrl());
 			customerExcelTemples.add(customerExcelTemple);
 		}
 		ExcelStyleAnnotationCellWriteHandler writeHandler = new ExcelStyleAnnotationCellWriteHandler(CustomerExcelTemple.class, null, null);
@@ -159,7 +160,7 @@ public class CustomerController {
 		for (Customer customer : customers) {
 			CustomerExcelTemple customerExcelTemple = new CustomerExcelTemple();
 			BeanUtils.copyProperties(customer, customerExcelTemple);
-			customerExcelTemple.setUrl(new URL(customer.getUrl()));
+			//customerExcelTemple.setUrl(new URL(customer.getUrl()));
 			customerExcelTemples.add(customerExcelTemple);
 		}
 		/*EasyExcel.write(fileName, CustomerExcelTemple.class).registerWriteHandler(new LongestMatchColumnWidthStyleStrategy())

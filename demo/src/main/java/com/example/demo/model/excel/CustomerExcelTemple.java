@@ -36,15 +36,20 @@ public class CustomerExcelTemple {
 	/**
 	 * byte[]
 	 */
-	@ExcelProperty(value = "baseImg", index = 3/* ,converter = CustomByteImageConverter.class */)
+	@ExcelProperty(value = "baseImg", index = 3 ,converter = CustomByteImageConverter.class )
 	@ColumnWidth(value = 25)
 	@ExcelStyle()
 	private byte[] baseImg;
 	
+	@ExcelProperty(value = "addrUrl",index = 4)
+	@ColumnWidth(value = 30)
+	@ExcelStyle()
+	private String addrUrl;
+	
 	/*
 	 * 计数
 	 */
-	@ExcelProperty(value = "total",index = 4)
+	@ExcelProperty(value = "total",index = 5)
 	@ColumnWidth(value = 30)
 	@ExcelStyle()
 	private String total;
