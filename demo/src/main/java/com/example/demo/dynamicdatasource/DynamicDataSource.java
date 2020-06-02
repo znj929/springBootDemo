@@ -1,4 +1,4 @@
-package com.example.demo.dynamicDataSource;
+package com.example.demo.dynamicdatasource;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;

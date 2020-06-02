@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.dao.CustomerDao;
-import com.example.demo.dynamicDataSource.TargetDataSource;
+import com.example.demo.dynamicdatasource.TargetDataSource;
 import com.example.demo.model.Customer;
 
 @Service("customerService")

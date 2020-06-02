@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Configuration;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
-import com.example.demo.dynamicDataSource.DynamicDataSource;
-import com.example.demo.dynamicDataSource.DynamicDataSourceContextHolder;
+import com.example.demo.dynamicdatasource.DynamicDataSource;
+import com.example.demo.dynamicdatasource.DynamicDataSourceContextHolder;
 
 import lombok.Data;
 

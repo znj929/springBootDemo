@@ -1,4 +1,4 @@
-package com.example.demo.dynamicDataSource;
+package com.example.demo.dynamicdatasource;
 
 import java.util.ArrayList;
 import java.util.List;
