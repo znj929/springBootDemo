@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +23,7 @@ import com.alibaba.excel.write.metadata.fill.FillConfig;
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.metadata.style.WriteFont;
 import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
-import com.example.demo.handler.ExcelStyleAnnotationCellWriteHandler;
+import com.example.demo.handler.easyexcel.ExcelStyleAnnotationCellWriteHandler;
 import com.example.demo.model.Customer;
 import com.example.demo.model.excel.CustomerExcelTemple;
 import com.example.demo.service.CustomerService;
@@ -32,7 +31,7 @@ import com.example.demo.utils.FileUtils;
 import com.example.demo.utils.ImageUtils;
 
 @RestController
-public class CustomerController {
+public class EasyExcelController {
 	@Autowired
 	private CustomerService customerService;
 	
@@ -136,7 +135,7 @@ public class CustomerController {
 	
 	@GetMapping("/getExcel")
 	public String getExcel() throws MalformedURLException {
-		String fileName = CustomerController.class.getResource("/").getPath() + "imageWrite" + System.currentTimeMillis() + ".xlsx";
+		String fileName = EasyExcelController.class.getResource("/").getPath() + "imageWrite" + System.currentTimeMillis() + ".xlsx";
 		List<Customer> customers = customerService.getCustomers();
 		List<CustomerExcelTemple> customerExcelTemples = new ArrayList<>();
 		for (Customer customer : customers) {
@@ -154,7 +153,7 @@ public class CustomerController {
 	
 	@GetMapping("/excel")
 	public String excel() throws MalformedURLException{
-		String fileName = CustomerController.class.getResource("/").getPath() + "imageWrite" + System.currentTimeMillis() + ".xlsx";
+		String fileName = EasyExcelController.class.getResource("/").getPath() + "imageWrite" + System.currentTimeMillis() + ".xlsx";
 		List<Customer> customers = customerService.getCustomers();
 		List<CustomerExcelTemple> customerExcelTemples = new ArrayList<>();
 		for (Customer customer : customers) {

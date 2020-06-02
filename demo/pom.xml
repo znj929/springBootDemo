@@ -69,6 +69,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <!-- guava -->
+        <dependency>
+        	<groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>16.0.1</version>
+        </dependency>
         <!-- easyexcel -->
         <dependency>
 	        <groupId>com.alibaba</groupId>
